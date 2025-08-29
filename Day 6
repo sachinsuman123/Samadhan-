@@ -1,0 +1,55 @@
+
+const profile = {
+  name: "John Doe",
+  role: "Web Developer",
+  bio: "Loves coding and creating beautiful web experiences.",
+  image: "https://via.placeholder.com/300x200"
+};
+
+
+const card = document.createElement("div");
+card.className = "card";
+card.style.cssText = `
+  background:#fff; width:300px; border-radius:15px; 
+  box-shadow:0 4px 8px rgba(0,0,0,0.1); 
+  overflow:hidden; text-align:center;
+`;
+
+
+const img = document.createElement("img");
+img.src = profile.image;
+img.style.width = "100%";
+img.style.height = "200px";
+img.style.objectFit = "cover";
+card.appendChild(img);
+
+
+const name = document.createElement("h2");
+name.innerText = profile.name;
+card.appendChild(name);
+
+
+const role = document.createElement("p");
+role.innerText = profile.role;
+role.style.color = "#555";
+card.appendChild(role);
+
+const bio = document.createElement("p");
+bio.innerText = profile.bio;
+bio.style.fontSize = "14px";
+bio.style.color = "#555";
+card.appendChild(bio);
+
+
+const btn = document.createElement("button");
+btn.innerText = "Connect";
+btn.style.cssText = `
+  margin:10px 0 20px; padding:10px 20px;
+  background:#007bff; color:white; border:none;
+  border-radius:8px; cursor:pointer;
+`;
+btn.onclick = () => alert("Hello " + profile.name + "! 👋");
+card.appendChild(btn);
+
+
+document.body.appendChild(card);
