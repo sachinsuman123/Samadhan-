@@ -1,0 +1,35 @@
+import { useState } from "react";
+
+export default function CounterWithPreview() {
+  const [count, setCount] = useState(0);
+  const [text, setText] = useState("");
+
+  return (
+    <div className="flex flex-col items-center p-6 space-y-6 max-w-md mx-auto bg-white rounded-2xl shadow-lg">
+      {/* Counter Section */}
+      <div className="flex items-center space-x-4">
+        <button
+          onClick={() => setCount(count + 1)}
+          className="px-4 py-2 text-white bg-blue-600 rounded-xl hover:bg-blue-700 transition"
+        >
+          Increment
+        </button>
+        <span className="text-2xl font-semibold">{count}</span>
+      </div>
+
+      {/* Input Section */}
+      <input
+        type="text"
+        placeholder="Type something..."
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        className="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+
+      {/* Live Preview */}
+      <div className="w-full p-4 text-gray-800 bg-gray-100 rounded-xl">
+        <p className="text-lg">{text || "Your text will appear here..."}</p>
+      </div>
+    </div>
+  );
+}
